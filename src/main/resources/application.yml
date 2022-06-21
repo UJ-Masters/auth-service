@@ -1,0 +1,34 @@
+server:
+  port: 8083
+  ssl:
+    enabled: false
+
+spring:
+  profiles:
+    active: local
+  jackson:
+    property-naming-strategy: com.fasterxml.jackson.databind.PropertyNamingStrategy
+  main:
+    banner-mode: off
+  datasource:
+    username: sa
+    url: jdbc:h2:mem:customdb
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+
+keycloak:
+  server:
+    contextPath: /auth
+    adminUser:
+      username: uj-admin
+      password: pass
+    realmImportFile: uj-realm.json
+
+logging:
+  level:
+    com:
+      masters:
+        uj:
+          auth: DEBUG
