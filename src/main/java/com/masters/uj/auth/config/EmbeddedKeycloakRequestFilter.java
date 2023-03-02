@@ -17,7 +17,7 @@ public class EmbeddedKeycloakRequestFilter extends AbstractRequestFilter impleme
         servletRequest.setCharacterEncoding("UTF-8");
         ClientConnection clientConnection = createConnection((HttpServletRequest) servletRequest);
 
-        filter(clientConnection, (session) -> {
+        filter(clientConnection, session -> {
             try {
                 filterChain.doFilter(servletRequest, servletResponse);
             } catch (Exception e) {
